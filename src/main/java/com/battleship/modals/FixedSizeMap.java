@@ -1,4 +1,4 @@
-package com.battleship.simple.modals;
+package com.battleship.modals;
 
 import java.util.HashMap;
 import java.util.Map;

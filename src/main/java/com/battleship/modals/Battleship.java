@@ -1,9 +1,9 @@
-package com.battleship.simple.modals;
+package com.battleship.modals;
 
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class Submarine implements Ship {
+public class Battleship implements Ship {
 
 	private Map<Location, Boolean> hits = new FixedSizeMap(getSize());
 	
@@ -19,12 +19,12 @@ public class Submarine implements Ship {
 
 	@Override
 	public int getSize() {
-		return 3;
+		return 4;
 	}
 
 	@Override
 	public String getType() {
-		return "Submarine";
+		return "Battleship";
 	}
 
 	@Override
@@ -49,6 +49,7 @@ public class Submarine implements Ship {
 				} 
 			}
 		}
+		
 	}
 
 }

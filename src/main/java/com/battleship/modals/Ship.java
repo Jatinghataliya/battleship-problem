@@ -1,4 +1,4 @@
-package com.battleship.simple.modals;
+package com.battleship.modals;
 
 public interface Ship {
 
