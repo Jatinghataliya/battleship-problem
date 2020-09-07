@@ -21,7 +21,7 @@ public class Field {
 		Location location = square.getLocation();
 		Square square2 = squares[location.getRow()][location.getColumn()];
 		if(square2 == null) {
-			if(isNotDiagonalElement(location)) {
+			if(!isNotDiagonalElement(location)) {
 				squares[location.getRow()][location.getColumn()] = square;
 			}
 		} else {
