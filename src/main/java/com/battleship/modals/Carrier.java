@@ -1,15 +1,18 @@
 package com.battleship.modals;
 
-import java.util.Map;
 import java.util.function.Predicate;
 
 public class Carrier implements Ship {
 
-	private Map<Location, Boolean> hits = new FixedSizeMap(getSize());
+	private FixedSizeMap hits;
 	
+	public Carrier() {
+		hits = new FixedSizeMap(getSize());
+	}
+
 	@Override
 	public boolean isSunk() {
-		return hits.values().stream().allMatch(new Predicate<Boolean>() {
+		return hits.getMap().values().stream().allMatch(new Predicate<Boolean>() {
 			@Override
 			public boolean test(Boolean t) {
 				return t.booleanValue() == true;
@@ -32,7 +35,7 @@ public class Carrier implements Ship {
 		if(isSunk()) {
 			return Status.SINK;
 		} else {
-			Boolean bl =  hits.getOrDefault(location, null);
+			Boolean bl =  hits.getMap().getOrDefault(location, null);
 			if(bl == null) {
 				return Status.MISS;
 			} else {
@@ -50,4 +53,17 @@ public class Carrier implements Ship {
 		}
 	}
 
+	@Override
+	public boolean setShip(Location location) throws Exception {
+		if(hits.put(location, false)) {
+			return true;
+		} else {
+			throw new Exception("Ship size exceeded`");
+		}
+	}
+
+	@Override
+	public Location getPreviousLocation() {
+		return hits.getMap().entrySet().stream().reduce((first, second) -> second).orElse(null).getKey();
+	}
 }

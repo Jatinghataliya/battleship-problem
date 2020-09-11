@@ -1,16 +1,13 @@
 package com.battleship.modals;
 
-public enum Status {
-
-	HIT("HIT"),
-	HITED("HITED"),
-	FINISH(""),
-	MISS("MISS"),
-	SINK("SINK");
+public enum Direction {
+	
+	VERTICAL("vertical"),
+	HORIZONTAL("horizontal");
 	
 	private final String name;
 	
-	private Status(String name) {
+	private Direction(String name) {
 		this.name = name;
 	}
 	
@@ -21,4 +18,5 @@ public enum Status {
 	public String toString() {
 		return this.name;
 	}
+	
 }

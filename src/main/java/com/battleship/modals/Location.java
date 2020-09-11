@@ -6,14 +6,16 @@ public class Location {
 	private int row;
 	private int column;
 	private String terminate;
+	private Direction direction;
 	
 	public Location() {
 	}
 	
-	public Location(int row, int column) {
+	public Location(int row, int column, Direction direction) {
 		super();
 		this.row = row;
 		this.column = column;
+		this.direction = direction;
 	}
 	
 	public int getRow() {
@@ -24,8 +26,9 @@ public class Location {
 		return terminate;
 	}
 
-	public void setTerminate(String terminate) {
+	public Location setTerminate(String terminate) {
 		this.terminate = terminate;
+		return this;
 	}
 
 	public Location setRow(int row) throws Exception {
@@ -52,6 +55,15 @@ public class Location {
 		return this;
 	}
 	
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public Location setDirection(Direction direction) {
+		this.direction = direction;
+		return this;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,30 +91,20 @@ public class Location {
 	
 	public boolean isTerminated() {
 		
-		if(this.terminate.isEmpty() || this.terminate == null) {
+		if(this.terminate == null|| this.terminate.isEmpty()) {
 			return false;
 		}
 		
 		return this.terminate.equalsIgnoreCase("I LOSE");
 	}
+	
+	@Override
+	public String toString() {
+		return "Location [row=" + row + ", column=" + column + ", terminate=" + terminate + ", direction=" + direction != null ? direction.name() : "" + "]";
+	}
 
 	public String toString(boolean isShipLocation) {
-		return isShipLocation ? "Ship Locations  : [row=" + row + ", column=" + column + "]"  : "Hited Location  : [row=" + row + ", column=" + column + "]";
+		return isShipLocation ? "Ship Locations  : [row=" + row + ", column=" + column + ", direction="+direction.name()+"]"  : "Hited Location  : [row=" + row + ", column=" + column + "]";
 	}
 	
-	public String getStatus(Status status) {
-		if(status.compareTo(Status.FINISH) == 1) {
-			return "Finish";
-		} else if(status.compareTo(Status.HIT) == 1) {
-			return "Hit";
-		} else if(status.compareTo(Status.MISS) == 1) {
-			return "Miss";
-		} else if(status.compareTo(Status.SINK) == 1) {
-			return "Sink";
-		} else if(status.compareTo(Status.HITED) == 1) {
-			return "Hit";
-		} else {
-			return "";
-		}
-	}
 }

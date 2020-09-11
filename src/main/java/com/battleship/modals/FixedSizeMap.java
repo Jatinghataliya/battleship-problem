@@ -1,9 +1,9 @@
 package com.battleship.modals;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FixedSizeMap extends HashMap<Location, Boolean> {
+public class FixedSizeMap extends LinkedHashMap<Location, Boolean> {
 
 	/**
 	 * 
@@ -15,14 +15,27 @@ public class FixedSizeMap extends HashMap<Location, Boolean> {
 	
 	public FixedSizeMap(int  max) {
 		this.max = max;
-		map = new HashMap<Location, Boolean>();
+		map = new LinkedHashMap<Location, Boolean>();
 	}
 	
 	public Boolean put(Location key, Boolean value){
-		if(map.size() <= max) {
-			return map.put(key, value);
-		} 
-		return value;
+		try {
+			if(map.size() <= max) {
+				map.put(key, value);
+				return true;
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
-		
+	
+	Map<Location, Boolean> getMap(){
+		return map;
+	}
+
+	@Override
+	public String toString() {
+		return "FixedSizeMap [max=" + max + ", map=" + map + "]";
+	}
 }
