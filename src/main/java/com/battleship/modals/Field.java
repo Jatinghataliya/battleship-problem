@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.battleship.constance.FieldExcecptions;
 import com.battleship.enums.Status;
 import com.battleship.exception.FieldExcecption;
 
-public class Field {
+public class Field implements FieldExcecptions{
 
 	private Square[][] squares;
 	private List<Location> locations = new ArrayList<Location>();
@@ -25,10 +26,10 @@ public class Field {
 				square.getShip().setShip(location);
 				squares[location.getRow()][location.getColumn()] = square;
 			} else {
-				throw new FieldExcecption("Ship can put only vertically or horizontally not diagonally");
+				throw new FieldExcecption(IS_DIAGONALLY);
 			}
 		} else {
-			throw new FieldExcecption("Battleship already located to this location");
+			throw new FieldExcecption(BATTLESHIP_LOCATED);
 		}
 		return this;
 	}
@@ -39,7 +40,7 @@ public class Field {
 		if(square2 != null) {
 			squares[location.getRow()][location.getColumn()] = null;
 		} else {
-			throw new FieldExcecption("Ship not available found");
+			throw new FieldExcecption(SHIP_NOT_FOUND);
 		}
 		return this;
 	}
@@ -65,7 +66,7 @@ public class Field {
 
 	private Square getSquare(Location location) throws Exception {
 		if(squares == null) {
-			throw new FieldExcecption("Battle Field not setup");
+			throw new FieldExcecption(FIELD_NOT_FOUND);
 		}
 		return squares[location.getRow()][location.getColumn()];
 	}

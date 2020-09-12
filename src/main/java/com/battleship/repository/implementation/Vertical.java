@@ -10,7 +10,7 @@ public class Vertical implements Directions {
 	public boolean isDiagonal(Location currentLocation,  Location previousLocation) throws LocationException{
 
 		if(currentLocation == null) {
-			throw new LocationException("Location not available");
+			throw new LocationException(LOCATION_NOT_FOUND);
 		}
 		
 		if(previousLocation == null) {

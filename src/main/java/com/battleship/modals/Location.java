@@ -1,12 +1,12 @@
 package com.battleship.modals;
 
+import com.battleship.constance.Constances;
+import com.battleship.constance.LocationExceptions;
 import com.battleship.exception.LocationException;
 import com.battleship.repository.Directions;
 
-public class Location {
+public class Location implements LocationExceptions, Constances{
 
-	private static final String STATUS = "I LOSE";
-	
 	private int row;
 	private int column;
 	private String terminate;
@@ -35,7 +35,7 @@ public class Location {
 
 	public Location setRow(int row) throws Exception {
 		if(row > 10 && row < 1) {
-			throw new LocationException("Invalid row number");
+			throw new LocationException(INVALID_ROW);
 		}
 		this.row = row;
 		return this;
@@ -47,7 +47,7 @@ public class Location {
 	
 	public Location setColumn(int column) throws Exception {
 		if(column > 10 && column < 1) {
-			throw new LocationException("Invalid column number");
+			throw new LocationException(INVALID_COLUMN);
 		}
 		this.column = column;
 		return this;

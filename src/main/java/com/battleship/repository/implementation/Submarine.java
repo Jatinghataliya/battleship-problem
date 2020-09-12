@@ -60,7 +60,7 @@ public class Submarine implements Ship {
 		if(hits.put(location, false)) {
 			return true;
 		} else {
-			throw new ShipException("Ship size exceeded`");
+			throw new ShipException(SHIP_SIZE);
 		}
 	}
 
