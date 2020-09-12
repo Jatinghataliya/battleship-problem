@@ -1,7 +1,9 @@
-package com.battleship.modals;
+package com.battleship.services;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import com.battleship.modals.Location;
 
 public class FixedSizeMap extends LinkedHashMap<Location, Boolean> {
 

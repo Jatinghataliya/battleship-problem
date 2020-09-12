@@ -1,4 +1,4 @@
-package com.battleship.modals;
+package com.battleship.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +7,8 @@ import java.util.List;
 import com.battleship.constance.FieldExcecptions;
 import com.battleship.enums.Status;
 import com.battleship.exception.FieldExcecption;
+import com.battleship.modals.Location;
+import com.battleship.modals.Square;
 
 public class Field implements FieldExcecptions{
 

@@ -1,11 +1,14 @@
-package com.battleship.modals;
+package com.battleship;
 
 import com.battleship.constance.Constances;
+import com.battleship.modals.Location;
+import com.battleship.modals.Square;
 import com.battleship.repository.Directions;
 import com.battleship.repository.implementation.Horizontal;
 import com.battleship.repository.implementation.Patrol;
 import com.battleship.repository.implementation.Submarine;
 import com.battleship.repository.implementation.Vertical;
+import com.battleship.services.Field;
 
 public class Game implements Constances{
 
