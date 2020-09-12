@@ -1,12 +1,17 @@
 package com.battleship.repository.implementation;
 
+import com.battleship.exception.LocationException;
 import com.battleship.modals.Location;
 import com.battleship.repository.Directions;
 
 public class Vertical implements Directions {
 
 	@Override
-	public boolean isDiagonal(Location currentLocation,  Location previousLocation) {
+	public boolean isDiagonal(Location currentLocation,  Location previousLocation) throws LocationException{
+
+		if(currentLocation == null) {
+			throw new LocationException("Location not available");
+		}
 		
 		if(previousLocation == null) {
 			return false;
