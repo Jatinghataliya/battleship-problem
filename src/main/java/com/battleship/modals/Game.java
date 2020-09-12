@@ -1,12 +1,13 @@
 package com.battleship.modals;
 
+import com.battleship.constance.Constances;
 import com.battleship.repository.Directions;
 import com.battleship.repository.implementation.Horizontal;
 import com.battleship.repository.implementation.Patrol;
 import com.battleship.repository.implementation.Submarine;
 import com.battleship.repository.implementation.Vertical;
 
-public class Game {
+public class Game implements Constances{
 
 	public static void main(String[] args) throws Exception {
 		
@@ -33,7 +34,7 @@ public class Game {
 		System.out.println(field.hit(new Location().setRow(3).setColumn(3)));
 		System.out.println(field.hit(new Location().setRow(4).setColumn(3)));
 		System.out.println(field.hit(new Location().setRow(5).setColumn(3)));
-		System.out.println(field.hit(new Location().setTerminate("I Lose")));
+		System.out.println(field.hit(new Location().setTerminate(STATUS)));
 		/************************* Let's Start Over Game****************************/
 	}
 }
