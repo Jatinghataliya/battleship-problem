@@ -1,4 +1,4 @@
-package com.battleship.modals;
+package com.battleship.enums;
 
 public enum Status {
 

@@ -1,5 +1,7 @@
 package com.battleship.modals;
 
+import com.battleship.repository.Ship;
+
 public class Square {
 
 	private Location location;

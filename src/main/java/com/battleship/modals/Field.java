@@ -1,7 +1,10 @@
 package com.battleship.modals;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.battleship.enums.Status;
 
 public class Field {
 
@@ -23,7 +26,6 @@ public class Field {
 			} else {
 				throw new Exception("Ship can put only vertically or horizontally not diagonally");
 			}
-				 
 		} else {
 			throw new Exception("Battleship already located to this location");
 		}
@@ -61,23 +63,14 @@ public class Field {
 	}
 
 	private Square getSquare(Location location) throws Exception {
-		
 		if(squares == null) {
 			throw new Exception("Battle Field not setup");
 		}
-		
 		return squares[location.getRow()][location.getColumn()];
-		
 	}
 	
 	private void printBoard() {
-		for (Square[] squares : this.squares) {
-			for(Square square : squares) {
-				if(square != null) {
-					System.out.println(square.getLocation().toString(true));
-				}
-			}
-		}
+		Arrays.stream(this.squares).flatMap(s -> Arrays.stream(s)).filter(s -> s != null).forEach(s -> System.out.println(s.getLocation().toString(true)));
 	}
 	
 }

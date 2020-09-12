@@ -1,5 +1,11 @@
 package com.battleship.modals;
 
+import com.battleship.repository.Directions;
+import com.battleship.repository.implementation.Horizontal;
+import com.battleship.repository.implementation.Patrol;
+import com.battleship.repository.implementation.Submarine;
+import com.battleship.repository.implementation.Vertical;
+
 public class Game {
 
 	public static void main(String[] args) throws Exception {

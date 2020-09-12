@@ -1,4 +1,6 @@
-package com.battleship.modals;
+package com.battleship.repository;
+
+import com.battleship.modals.Location;
 
 public interface Directions {
 

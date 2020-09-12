@@ -30,7 +30,7 @@ public class FixedSizeMap extends LinkedHashMap<Location, Boolean> {
 		return false;
 	}
 	
-	Map<Location, Boolean> getMap(){
+	public Map<Location, Boolean> getMap(){
 		return map;
 	}
 

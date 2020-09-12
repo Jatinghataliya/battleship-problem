@@ -1,7 +1,11 @@
 package com.battleship.modals;
 
+import com.battleship.exception.LocationException;
+import com.battleship.repository.Directions;
 
 public class Location {
+
+	private static final String STATUS = "I LOSE";
 	
 	private int row;
 	private int column;
@@ -30,11 +34,9 @@ public class Location {
 	}
 
 	public Location setRow(int row) throws Exception {
-		
 		if(row > 10 && row < 1) {
-			throw new Exception("Invalid row number");
+			throw new LocationException("Invalid row number");
 		}
-		
 		this.row = row;
 		return this;
 	}
@@ -44,11 +46,9 @@ public class Location {
 	}
 	
 	public Location setColumn(int column) throws Exception {
-		
 		if(column > 10 && column < 1) {
-			throw new Exception("Invalid row number");
+			throw new LocationException("Invalid column number");
 		}
-		
 		this.column = column;
 		return this;
 	}
@@ -73,27 +73,24 @@ public class Location {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		Location other = (Location) obj;
-		if (column != other.column)
+		if ((column != other.column) || (row != other.row)) {
 			return false;
-		if (row != other.row)
-			return false;
+		}
 		return true;
 	}
 	
 	public boolean isTerminated() {
-		
 		if(this.terminate == null|| this.terminate.isEmpty()) {
 			return false;
 		}
-		
-		return this.terminate.equalsIgnoreCase("I LOSE");
+		return this.terminate.equalsIgnoreCase(STATUS);
 	}
 	
 	@Override

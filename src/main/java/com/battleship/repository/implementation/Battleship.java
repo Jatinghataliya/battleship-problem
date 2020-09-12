@@ -1,12 +1,18 @@
-package com.battleship.modals;
+package com.battleship.repository.implementation;
 
-public class Patrol implements Ship {
+import com.battleship.enums.Status;
+import com.battleship.exception.ShipException;
+import com.battleship.modals.FixedSizeMap;
+import com.battleship.modals.Location;
+import com.battleship.repository.Ship;
+
+public class Battleship implements Ship {
 
 	private FixedSizeMap hits;
-	private static final String TYPE = "Patrol";
-	private static final int SIZE = 2;
+	private static final String TYPE = "Battleship";
+	private static final int SIZE = 4;
 	
-	public Patrol() {
+	public Battleship() {
 		hits = new FixedSizeMap(getSize());
 	}
 
@@ -53,7 +59,7 @@ public class Patrol implements Ship {
 		if(hits.put(location, false)) {
 			return true;
 		} else {
-			throw new Exception("Ship size exceeded`");
+			throw new ShipException("Ship size exceeded`");
 		}
 	}
 
@@ -61,5 +67,4 @@ public class Patrol implements Ship {
 	public Location getPreviousLocation() {
 		return hits.getMap().keySet().stream().reduce((first, second) -> second).orElse(null);
 	}
-
 }

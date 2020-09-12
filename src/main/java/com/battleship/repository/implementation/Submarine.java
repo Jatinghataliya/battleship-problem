@@ -1,4 +1,10 @@
-package com.battleship.modals;
+package com.battleship.repository.implementation;
+
+import com.battleship.enums.Status;
+import com.battleship.exception.ShipException;
+import com.battleship.modals.FixedSizeMap;
+import com.battleship.modals.Location;
+import com.battleship.repository.Ship;
 
 public class Submarine implements Ship {
 
@@ -54,7 +60,7 @@ public class Submarine implements Ship {
 		if(hits.put(location, false)) {
 			return true;
 		} else {
-			throw new Exception("Ship size exceeded`");
+			throw new ShipException("Ship size exceeded`");
 		}
 	}
 

@@ -1,4 +1,7 @@
-package com.battleship.modals;
+package com.battleship.repository.implementation;
+
+import com.battleship.modals.Location;
+import com.battleship.repository.Directions;
 
 public class Vertical implements Directions {
 
