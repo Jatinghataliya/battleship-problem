@@ -7,23 +7,18 @@ public class Game {
 		Field field = new Field();
 		/***********************  Set Field with battle ships **********************/
 		Patrol patrol = new Patrol();
+		Directions vertical = new Vertical(); 
 		field
-			.put(new Square().setLocation(new Location().setRow(2).setColumn(3).setDirection(Direction.VERTICAL)).setShip(patrol))
-			.put(new Square().setLocation(new Location().setRow(2).setColumn(4).setDirection(Direction.VERTICAL)).setShip(patrol));
-		
-		
+			.put(new Square().setLocation(new Location().setRow(2).setColumn(3).setDirections(vertical)).setShip(patrol))
+			.put(new Square().setLocation(new Location().setRow(2).setColumn(4).setDirections(vertical)).setShip(patrol));
 		
 		Submarine ship = new Submarine();
-		field.put(new Square().setLocation(new Location().setRow(3).setColumn(3).setDirection(Direction.HORIZONTAL))
-				.setShip(ship))
-				.put(new Square().setLocation(new Location().setRow(4).setColumn(3).setDirection(Direction.HORIZONTAL))
-						.setShip(ship))
-			//	.put(new Square().setLocation(new Location().setRow(4).setColumn(4).setDirection(Direction.HORIZONTAL))
-			//			.setShip(ship))
-				.put(new Square().setLocation(new Location().setRow(5).setColumn(3).setDirection(Direction.HORIZONTAL))
-						.setShip(ship));
-		 
-		 
+		Directions horizontal = new Horizontal();
+		field
+			.put(new Square().setLocation(new Location().setRow(3).setColumn(3).setDirections(horizontal)).setShip(ship))
+			.put(new Square().setLocation(new Location().setRow(4).setColumn(3).setDirections(horizontal)).setShip(ship))
+			//.put(new Square().setLocation(new Location().setRow(4).setColumn(4).setDirections(horizontal)).setShip(ship))
+			.put(new Square().setLocation(new Location().setRow(5).setColumn(3).setDirections(horizontal)).setShip(ship));
 		/***********************  Set Field with battle ships **********************/
 		
 		/************************* Let's Start Over Game****************************/

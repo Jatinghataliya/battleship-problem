@@ -6,16 +6,14 @@ public class Location {
 	private int row;
 	private int column;
 	private String terminate;
-	private Direction direction;
+	private Directions directions;
 	
-	public Location() {
-	}
+	public Location() {}
 	
-	public Location(int row, int column, Direction direction) {
-		super();
+	public Location(int row, int column, Directions directions) {
 		this.row = row;
 		this.column = column;
-		this.direction = direction;
+		this.directions = directions;
 	}
 	
 	public int getRow() {
@@ -55,12 +53,12 @@ public class Location {
 		return this;
 	}
 	
-	public Direction getDirection() {
-		return direction;
+	public Directions getDirections() {
+		return directions;
 	}
 
-	public Location setDirection(Direction direction) {
-		this.direction = direction;
+	public Location setDirections(Directions directions) {
+		this.directions = directions;
 		return this;
 	}
 
@@ -100,11 +98,11 @@ public class Location {
 	
 	@Override
 	public String toString() {
-		return "Location [row=" + row + ", column=" + column + ", terminate=" + terminate + ", direction=" + direction != null ? direction.name() : "" + "]";
+		return "Location [row=" + row + ", column=" + column + ", terminate=" + terminate + "]";
 	}
 
 	public String toString(boolean isShipLocation) {
-		return isShipLocation ? "Ship Locations  : [row=" + row + ", column=" + column + ", direction="+direction.name()+"]"  : "Hited Location  : [row=" + row + ", column=" + column + "]";
+		return isShipLocation ? "Ship Locations  : [row=" + row + ", column=" + column + "]"  : "Hited Location  : [row=" + row + ", column=" + column + "]";
 	}
 	
 }

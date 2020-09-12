@@ -1,10 +1,10 @@
 package com.battleship.modals;
 
-import java.util.function.Predicate;
-
 public class Battleship implements Ship {
 
 	private FixedSizeMap hits;
+	private static final String TYPE = "Battleship";
+	private static final int SIZE = 4;
 	
 	public Battleship() {
 		hits = new FixedSizeMap(getSize());
@@ -12,22 +12,17 @@ public class Battleship implements Ship {
 
 	@Override
 	public boolean isSunk() {
-		return hits.getMap().values().stream().allMatch(new Predicate<Boolean>() {
-			@Override
-			public boolean test(Boolean t) {
-				return t.booleanValue() == true;
-			}
-		});
+		return hits.getMap().values().stream().allMatch(b -> b.booleanValue());
 	}
 
 	@Override
 	public int getSize() {
-		return 4;
+		return SIZE;
 	}
 
 	@Override
 	public String getType() {
-		return "Battleship";
+		return TYPE;
 	}
 
 	@Override
@@ -66,6 +61,6 @@ public class Battleship implements Ship {
 
 	@Override
 	public Location getPreviousLocation() {
-		return hits.getMap().entrySet().stream().reduce((first, second) -> second).orElse(null).getKey();
+		return hits.getMap().keySet().stream().reduce((first, second) -> second).orElse(null);
 	}
 }
